@@ -21,7 +21,7 @@ display: flex;
     background-color: rgb(230, 230, 230);
 }
 .main {
-    width: 80vw;
+    width: 90vw;
     min-width: 300px;
     border-radius: 20px;
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
