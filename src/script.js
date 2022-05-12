@@ -18,7 +18,8 @@ const firebaseConfig = {
   const analytics = getAnalytics(app);
 
 function submit(){
-    var dp1 = firebase.database().ref("products/" + d("ppID").value).set({
+    var da = new Date();
+    var dp1 = firebase.database().ref("messages/" + da.getTime()).set({
         name: d("name").value,
         mail: d("mail").value,
         phone: d("phone").value,
