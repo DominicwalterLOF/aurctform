@@ -11,7 +11,19 @@
 
 <body>
     <div class = "footer">
-        this is a test 
+     <img class = "logo" src="./src/logo.png" alt="logo">
+     <div class="sub">
+        <h1>
+            Anna university Regional Campus - Tirunelveli
+        </h1>
+        <h4>
+            Grievance Form
+        </h4>
+     </div>
+     
+     <div class="login">
+         <img class = "userlogo" src="https://umass.edu/art/sites/default/files/store/img/cfm/user_14.png" alt="">
+     </div>
     </div>
     <div class="mainmain">
         <div class="main">
@@ -39,16 +51,32 @@
                 </div>
                 <div class="row">
                     <div class="elem">
-                        <p>Department and Year</p>
-                        <input id="dy">
+                        <p>Department</p>
+                        <input id="d">
+                        <div class="elem">
+                            <p>Year of Study</p>
+                            <input id="y">
+                        </div>
+                        <br>
+                        <br>
+                        <br>
+                        <hr>
+                        <center>
+                            <button class="subBut" onclick="submit()">
+                                Submit
+                            </button>
+                        </center>
                     </div>
-                    <div class="elem"></div>
+
+                    <div class="elem">
+                        <div class="mainMsg">
+                            <p>Message</p>
+                            <textarea id="msg"></textarea>
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
-                    <div class="mainMsg">
-                        <p>Message</p>
-                        <textarea id="msg"></textarea>
-                    </div>
+                    
                 </div>
                 
     
@@ -58,9 +86,7 @@
     
     
             </div>
-            <button class="subBut" onclick="submit()">
-                Submit
-            </button>
+            
         </div>
     </div>
     

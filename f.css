@@ -68,6 +68,7 @@ height: 300px;
     width: 100%;
     min-height: 44px;
     border: unset;
+    border: 1px solid rgb(172, 172, 172);
     border-radius: 4px;
     outline-color: rgb(84 105 212 / 0.5);
     background-color: rgb(255, 255, 255);
@@ -83,7 +84,19 @@ height: 300px;
 .mainMsg{
     display: grid;
     place-items: center;
-    width:70%;
+   
+}
+.subBut{
+    padding: 10px;
+    width: 20%;
+    border: 0px;
+    background-color:rgb(157, 9, 14) ;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.subBut:hover{
+    background-color:rgb(190, 10, 16) ;
 }
 
 .footer{
@@ -91,4 +104,36 @@ height: 300px;
     background-color: rgb(157, 9, 14);
     height: 100px;
     width: 100vw;
+    display: flex;
+    justify-content: space-around;
+}
+
+p{
+    font-weight: bold;
+}
+
+.logo{
+    height: 80px;
+margin: 10px;
+}
+
+h1{
+    color:rgb(255, 255, 255);
+    margin: 0px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.userlogo{
+    border-radius: 100%;
+    width: 50px;
+    height: 50px;
+    margin: 25%;
+    cursor: pointer;
+}
+
+h4{
+    color: white;
+    text-align: center;
+    
 }
