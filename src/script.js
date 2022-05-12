@@ -13,9 +13,10 @@ const firebaseConfig = {
     measurementId: "G-9MWBHEN5NT"
   };
 
-  // Initialize Firebase
-  const app = initializeApp(firebaseConfig);
-  const analytics = getAnalytics(app);
+  firebase.initializeApp(firebaseConfig);
+
+  firebase.analytics();
+  
 
 function submit(){
     var da = new Date();
@@ -25,7 +26,8 @@ function submit(){
         phone: d("phone").value,
         regno: d("regno").value,
         message: d("msg").value,
-        dept : d("dy").value,
+        dept : d("d").value,
+        year : d("y").value
     }
     );
 }
