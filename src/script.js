@@ -30,4 +30,6 @@ function submit(){
         year : d("y").value
     }
     );
+    window.alert("Successfully Submitted...");
+    location.replace("http://auttvl.ac.in/");
 }
