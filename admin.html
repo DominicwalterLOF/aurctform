@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.4/css/bulma.min.css">
+    <link rel="stylesheet" href="./src/admin.css">
+</head>
+
+<body>
+
+
+    <div class="overlayFrost glassFrost " id = "frostOverlay" onclick='showToast("Not yet available for public beta testing, stay tuned...", 2, 5);'>
+        <p class = "glassFrost" style=" width : 400px; background: rgba(0, 0, 0, 0.467) ; border-radius: 20px; padding: 50px; color: white; text-align: center;margin: 25%; font-size: 30px;">
+           <b><button onclick = "googleSignInPopup()" style="height: 35px;margin-right: 20px;">LOG IN   </button></b>  to Continue
+        </p>
+    </div>
+
+
+    <div class="site-wrap">
+
+        <nav class="site-nav">
+
+            <div class="name">
+                Anna University
+
+                <svg width="24" height="24" viewBox="0 0 24 24">
+                    <path
+                        d="M11.5,22C11.64,22 11.77,22 11.9,21.96C12.55,21.82 13.09,21.38 13.34,20.78C13.44,20.54 13.5,20.27 13.5,20H9.5A2,2 0 0,0 11.5,22M18,10.5C18,7.43 15.86,4.86 13,4.18V3.5A1.5,1.5 0 0,0 11.5,2A1.5,1.5 0 0,0 10,3.5V4.18C7.13,4.86 5,7.43 5,10.5V16L3,18V19H20V18L18,16M19.97,10H21.97C21.82,6.79 20.24,3.97 17.85,2.15L16.42,3.58C18.46,5 19.82,7.35 19.97,10M6.58,3.58L5.15,2.15C2.76,3.97 1.18,6.79 1,10H3C3.18,7.35 4.54,5 6.58,3.58Z">
+                    </path>
+                </svg>
+            </div>
+
+            <ul>
+                <li class="active"><a href="#">Complaints</a></li>
+                <li><a href="#0">Discussions</a></li>
+                <li><a href="#0">Activities</a></li>
+                
+            </ul>
+
+            <div class="note">
+                <h3>Report Site Problem</h3>
+                <p>Report problem in this site/ request new feature <br> <i>Click here</i>.</p>
+            </div>
+
+        </nav>
+
+        <main>
+
+            <header>
+                <div class="breadcrumbs">
+                    <a href="#0/">Home</a>
+                </div>
+                <br>
+                <h1 class="title">GRIEVANCES</h1>
+
+                <nav class="nav-tabs" id="nav-tabs">
+                    <a href="#0" class="active">
+                        Complaints
+                        <span>1</span>
+                    </a>
+                    <a href="#0">
+                        Discussions
+                        <span>1</span>
+                    </a>
+                    <a href="#0">
+                        Activities
+                        <span>1</span>
+                    </a>
+                </nav>
+            </header>
+
+            <div class="content-columns" id="MainCont">
+      
+            </div>
+
+        </main>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"
+        integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.2.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.1/firebase-database.js"></script>
+    <script src="./src/admin.js"></script>
+</body>
+
+</html>
