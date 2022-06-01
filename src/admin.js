@@ -159,7 +159,7 @@ function setDate(){
 
 function submitMsg(inpMsg){
     var da = new Date();
-    var dp1 = firebase.database().ref("ChatMessages/" + da.getTime()).set({
+    var dp1 = firebase.database().ref("Chatmessages/" + da.getTime()).set({
         value : inpMsg,
         nam : userdata.email.split("@")[0]
     }
