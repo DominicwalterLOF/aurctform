@@ -157,7 +157,7 @@ function setDate(){
 }
 
 
-function submit(inpMsg){
+function submitMsg(inpMsg){
     var da = new Date();
     var dp1 = firebase.database().ref("ChatMessages/" + da.getTime()).set({
         value : inpMsg,
@@ -190,7 +190,7 @@ function insertMessage() {
   if ($.trim(msg) == '') {
     return false;
   }
-  submit(msg);
+  submitMsg(msg);
 }
 
 $('.message-submit').click(function() {
