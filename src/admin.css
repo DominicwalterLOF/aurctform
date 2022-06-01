@@ -541,3 +541,11 @@ padding: 10px;
      padding: 4px;
      text-align: center;
  }
+
+ .bgw{
+     background-color: white;
+ }
+
+ #12d{
+    width : 400px; background: rgba(0, 0, 0, 0.467) ; border-radius: 20px; padding: 50px; color: white; text-align: center;margin: 25%; font-size: 30px;
+ }
