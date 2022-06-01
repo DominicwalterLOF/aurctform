@@ -26,8 +26,8 @@ navTabs.forEach((tab) => {
 });
 
 
-function addCard(msg, name, roll, year, mail) {
-    var x = '<div class="item"><div class="left"><div class="condensed bb">' + name + '</div><div class="condensed">' + year + '</div><div class="condensed">' + roll + '</div><div class="condensed">' + mail + '</div></div><div class="right"><p>' + msg + '</p></div></div>';
+function addCard(msg, name, roll, year, mail, no) {
+    var x = '<div class="item"><div class="left"><div class="condensed bb">' + name + '</div><div class="condensed">' + year + '</div><div class="condensed">' + roll + '</div><div class="condensed">' + no + '</div></div><div class="right"><div class= "rtop">' + msg + '</div><div class = "rbottom">' + mail + '</div></div></div>';
     document.getElementById("MainCont").innerHTML += x;
 }
 
@@ -41,7 +41,7 @@ function readData() {
 
 function renderHTML(values) {
     for (var i in values) {
-        addCard(values[i]["message"], values[i]["name"], values[i]["regno"], values[i]["year"], values[i]["mail"]);
+        addCard(values[i]["message"], values[i]["name"], values[i]["regno"], values[i]["year"], values[i]["mail"], values[i]["phone"]);
     }
 }
 
@@ -167,7 +167,7 @@ function submitMsg(inpMsg){
 }
 
 function readChatData() {
-    document.getElementById("messagescontent").innerHTML = "";
+    
     firebase.database().ref('Chatmessages/').on('value', (snap) => {
         renderChat(snap.val());
     })
@@ -177,6 +177,7 @@ function readChatData() {
 
 function renderChat(chatvalue){
     console.log("Render Chat");
+    document.getElementById("messagescontent").innerHTML = "";
     console.log(chatvalue);
     for (k in chatvalue){
         renderMessage(chatvalue[k]["value"], chatvalue[k]["nam"])

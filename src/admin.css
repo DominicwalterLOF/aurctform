@@ -530,3 +530,14 @@ padding: 10px;
      padding: 10px;
      border-radius: 10px;
  }
+
+ .rtop{
+     height: 90%;
+     width: 100%;
+ }
+
+ .rbottom{
+     border-top: #101b2d47 1px solid;
+     padding: 4px;
+     text-align: center;
+ }
