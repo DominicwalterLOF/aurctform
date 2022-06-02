@@ -215,3 +215,22 @@ function renderMessage(chatMsg, nam) {
 }
 
 readChatData();
+
+
+function readUserAuth(){
+    firebase.database().ref('users/').on('value', (snap) => {
+        validateUser(snap.val());
+    })
+}
+
+var authFlag = false;
+
+function validateUser(userList){
+    if (userdata.uid in userList){
+        authFlag = true;
+    }
+    else{
+        authFlag = false;
+    }
+    
+}
