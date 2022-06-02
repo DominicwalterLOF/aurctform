@@ -87,16 +87,7 @@ body {
     right: 0;
     top: 7px;
   }
-  .name::after {
-    content: "";
-    width: 8px;
-    height: 8px;
-    background: #4777ce;
-    border-radius: 20px;
-    position: absolute;
-    top: 6px;
-    right: -2px;
-  }
+
   
   main {
     border-top-left-radius: 2rem;

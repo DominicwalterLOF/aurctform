@@ -208,7 +208,7 @@ $(window).on('keydown', function(e) {
 
 function renderMessage(chatMsg, nam) {
     console.log("render Message");
-    document.getElementById("messagescontent").innerHTML += '<div class="mymessage"><p class = "nam">'+ nam + '</p><br><p class = "msg">' + chatMsg + '</p></div>';
+    document.getElementById("messagescontent").innerHTML = '<div class="mymessage"><p class = "nam">'+ nam + '</p><br><p class = "msg">' + chatMsg + '</p></div>' + document.getElementById("messagescontent").innerHTML;
     //$('<div class="message new"><figure class="avatar"><img src="./src/logo.png" /></figure><p>'+ nam + '</p><br>' + chatMsg + '</div>').appendTo($('.mCSB_container')).addClass('new');
     setDate();
     updateScrollbar();
