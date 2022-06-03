@@ -28,7 +28,7 @@ navTabs.forEach((tab) => {
 
 function addCard(msg, name, roll, year, mail, no) {
     var x = '<div class="item"><div class="left"><div class="condensed bb">' + name + '</div><div class="condensed">' + year + '</div><div class="condensed">' + roll + '</div><div class="condensed">' + no + '</div></div><div class="right"><div class= "rtop">' + msg + '</div><div class = "rbottom">' + mail + '</div></div></div>';
-    document.getElementById("MainCont").innerHTML += x;
+    document.getElementById("MainCont").innerHTML = x + document.getElementById("MainCont").innerHTML;
 }
 
 
