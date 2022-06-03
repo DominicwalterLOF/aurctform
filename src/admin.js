@@ -175,9 +175,9 @@ function readChatData() {
 
 
 function renderChat(chatvalue) {
-    console.log("Render Chat");
+
     document.getElementById("messagescontent").innerHTML = "";
-    console.log(chatvalue);
+
     for (k in chatvalue) {
         renderMessage(chatvalue[k]["value"], chatvalue[k]["nam"])
     }
@@ -185,7 +185,6 @@ function renderChat(chatvalue) {
 
 
 function insertMessage() {
-    console.log("Insert Message");
     msg = $('.message-input').val();
     if ($.trim(msg) == '') {
         return false;
@@ -206,7 +205,6 @@ $(window).on('keydown', function (e) {
 
 
 function renderMessage(chatMsg, nam) {
-    console.log("render Message");
     document.getElementById("messagescontent").innerHTML = '<div class="mymessage"><p class = "nam">' + nam + '</p><br><p class = "msg">' + chatMsg + '</p></div>' + document.getElementById("messagescontent").innerHTML;
     //$('<div class="message new"><figure class="avatar"><img src="./src/logo.png" /></figure><p>'+ nam + '</p><br>' + chatMsg + '</div>').appendTo($('.mCSB_container')).addClass('new');
     setDate();
