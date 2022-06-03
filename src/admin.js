@@ -65,7 +65,6 @@ firebase.auth().onAuthStateChanged((user) => {
         userdata = user;
         readUserAuth();
     } else {
-        window.alert("Authentication Failed");
     }
 });
 
@@ -92,39 +91,39 @@ dragElement(document.getElementById("chat"));
 function dragElement(elmnt) {
     var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
     if (document.getElementById(elmnt.id + "header")) {
-     
+
         document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
     } else {
-     
+
         elmnt.onmousedown = dragMouseDown;
     }
 
     function dragMouseDown(e) {
         e = e || window.event;
         e.preventDefault();
-      
+
         pos3 = e.clientX;
         pos4 = e.clientY;
         document.onmouseup = closeDragElement;
-  
+
         document.onmousemove = elementDrag;
     }
 
     function elementDrag(e) {
         e = e || window.event;
         e.preventDefault();
- 
+
         pos1 = pos3 - e.clientX;
         pos2 = pos4 - e.clientY;
         pos3 = e.clientX;
         pos4 = e.clientY;
-   
+
         elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
         elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
     }
 
     function closeDragElement() {
-      
+
         document.onmouseup = null;
         document.onmousemove = null;
     }
@@ -135,39 +134,39 @@ var $messages = $('.messages-content'),
     d, h, m,
     i = 0;
 
-$(window).load(function() {
-  //$messages.mCustomScrollbar();
-  setTimeout(function() {
-  }, 100);
+$(window).load(function () {
+    //$messages.mCustomScrollbar();
+    setTimeout(function () {
+    }, 100);
 });
 
 function updateScrollbar() {
-  $messages.mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'bottom', {
-    scrollInertia: 10,
-    timeout: 0
- });
+    $messages.mCustomScrollbar("update").mCustomScrollbar('scrollTo', 'bottom', {
+        scrollInertia: 10,
+        timeout: 0
+    });
 }
 
-function setDate(){
-  d = new Date()
-  if (m != d.getMinutes()) {
-    m = d.getMinutes();
-    $('<div class="timestamp">' + d.getHours() + ':' + m + '</div>').appendTo($('.message:last'));
-  }
+function setDate() {
+    d = new Date()
+    if (m != d.getMinutes()) {
+        m = d.getMinutes();
+        $('<div class="timestamp">' + d.getHours() + ':' + m + '</div>').appendTo($('.message:last'));
+    }
 }
 
 
-function submitMsg(inpMsg){
+function submitMsg(inpMsg) {
     var da = new Date();
     var dp1 = firebase.database().ref("Chatmessages/" + da.getTime()).set({
-        value : inpMsg,
-        nam : userdata.email.split("@")[0]
+        value: inpMsg,
+        nam: userdata.email.split("@")[0]
     }
     );
 }
 
 function readChatData() {
-    
+
     firebase.database().ref('Chatmessages/').on('value', (snap) => {
         renderChat(snap.val());
     })
@@ -175,11 +174,11 @@ function readChatData() {
 
 
 
-function renderChat(chatvalue){
+function renderChat(chatvalue) {
     console.log("Render Chat");
     document.getElementById("messagescontent").innerHTML = "";
     console.log(chatvalue);
-    for (k in chatvalue){
+    for (k in chatvalue) {
         renderMessage(chatvalue[k]["value"], chatvalue[k]["nam"])
     }
 }
@@ -187,28 +186,28 @@ function renderChat(chatvalue){
 
 function insertMessage() {
     console.log("Insert Message");
-  msg = $('.message-input').val();
-  if ($.trim(msg) == '') {
-    return false;
-  }
-  submitMsg(msg);
+    msg = $('.message-input').val();
+    if ($.trim(msg) == '') {
+        return false;
+    }
+    submitMsg(msg);
 }
 
-$('.message-submit').click(function() {
-  insertMessage();
+$('.message-submit').click(function () {
+    insertMessage();
 });
 
-$(window).on('keydown', function(e) {
-  if (e.which == 13) {
-    insertMessage();
-    return false;
-  }
+$(window).on('keydown', function (e) {
+    if (e.which == 13) {
+        insertMessage();
+        return false;
+    }
 })
 
 
 function renderMessage(chatMsg, nam) {
     console.log("render Message");
-    document.getElementById("messagescontent").innerHTML = '<div class="mymessage"><p class = "nam">'+ nam + '</p><br><p class = "msg">' + chatMsg + '</p></div>' + document.getElementById("messagescontent").innerHTML;
+    document.getElementById("messagescontent").innerHTML = '<div class="mymessage"><p class = "nam">' + nam + '</p><br><p class = "msg">' + chatMsg + '</p></div>' + document.getElementById("messagescontent").innerHTML;
     //$('<div class="message new"><figure class="avatar"><img src="./src/logo.png" /></figure><p>'+ nam + '</p><br>' + chatMsg + '</div>').appendTo($('.mCSB_container')).addClass('new');
     setDate();
     updateScrollbar();
@@ -217,30 +216,26 @@ function renderMessage(chatMsg, nam) {
 readChatData();
 
 
-function readUserAuth(){
+function readUserAuth() {
     firebase.database().ref('users/').on('value', (snap) => {
-        const silentKey = snap.val()["key"]; 
+        const silentKey = snap.val()["key"];
         validateUser(silentKey);
     })
 }
 
 var authFlag = false;
 
-function validateUser(silentKey){
-    
-    if (document.getElementById('passInp').value != ""){
-        if (document.getElementById('passInp').value == silentKey){
-            authFlag = true;
-            readData();
-            rem();
-        }
-        else{
-            window.alert("Wrong Password")
-        }
-    }
-    else{
+function validateUser(silentKey) {
 
+    var name = prompt('Please enter The Password');
+    if (name == silentKey) {
+        authFlag = true;
+        readData();
+        rem();
     }
-    
-
+    else {
+        window.alert("Wrong Password")
+    }
 }
+
+
