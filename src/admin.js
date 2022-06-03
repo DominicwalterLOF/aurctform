@@ -40,6 +40,7 @@ function readData() {
 }
 
 function renderHTML(values) {
+    document.getElementById("MainCont").innerHTML = "";
     for (var i in values) {
         addCard(values[i]["message"], values[i]["name"], values[i]["regno"], values[i]["year"], values[i]["mail"], values[i]["phone"]);
     }
