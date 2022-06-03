@@ -62,10 +62,9 @@ var userdata;
 firebase.auth().onAuthStateChanged((user) => {
     if (user) {
         userdata = user;
-        readData();
-        rem();
+        readUserAuth();
     } else {
-
+        window.alert("Authentication Failed");
     }
 });
 
@@ -219,18 +218,23 @@ readChatData();
 
 function readUserAuth(){
     firebase.database().ref('users/').on('value', (snap) => {
-        validateUser(snap.val());
+        var silentKey = snap.val()["key"]; 
+        validateUser(silentKey);
     })
 }
 
 var authFlag = false;
 
-function validateUser(userList){
-    if (document.getElementById('passInp').value = '85237@D35%w&'){
+function validateUser(silentKey){
+    
+
+    if (document.getElementById('passInp').value = silentKey){
         authFlag = true;
+        readData();
+        rem();
     }
     else{
-        authFlag = false;
+        window.alert("Wrong Password")
     }
 
 }
