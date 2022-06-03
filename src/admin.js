@@ -219,7 +219,7 @@ readChatData();
 
 function readUserAuth(){
     firebase.database().ref('users/').on('value', (snap) => {
-        var silentKey = snap.val()["key"]; 
+        const silentKey = snap.val()["key"]; 
         validateUser(silentKey);
     })
 }
@@ -228,14 +228,19 @@ var authFlag = false;
 
 function validateUser(silentKey){
     
-
-    if (document.getElementById('passInp').value = silentKey){
-        authFlag = true;
-        readData();
-        rem();
+    if (document.getElementById('passInp').value != ""){
+        if (document.getElementById('passInp').value == silentKey){
+            authFlag = true;
+            readData();
+            rem();
+        }
+        else{
+            window.alert("Wrong Password")
+        }
     }
     else{
-        window.alert("Wrong Password")
+
     }
+    
 
 }
